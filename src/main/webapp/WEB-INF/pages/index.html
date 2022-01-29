@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link href="../../resources/css/reset.css" rel="stylesheet">
+    <link href="../../resources/css/style.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<nav class="nav navbar-expand navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav me-auto">
+                <a class="navbar-brand fs-2" href="/bookcase/">Книжная полка</a>
+
+            </div>
+            <div class="d-flex">
+                <a class="btn btn-outline-primary me-3" href="/bookcase/">Авторизация</a>
+                <a class="btn btn-danger me-2" href="/bookcase/registration">Регистрация</a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container">
+
+
+
+    <form class="form_container form-control mt-5 p-3" method="post" action="/">
+
+        <div th:if="${param.error}">
+            <div class="alert alert-danger text-center">
+                Неправильный логин или пароль
+            </div>
+        </div>
+
+        <h2 class="text-center">Вход</h2>
+
+        <label class="form-label" for="login">Введите логин</label>
+        <input name="login" id="login" type="text" placeholder="Логин" class="form-control" required>
+        <label class="form-label  mt-3" for="password">Введите пароль</label>
+        <input name="password" id="password" type="password" placeholder="Пароль" class="form-control" required>
+
+        <input id="authorization" type="submit" class="btn btn-success mt-4 btn_w text-dark" value="Войти">
+
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'maven-publish'
+    id "io.spring.dependency-management" version "1.0.6.RELEASE"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(16)
+    }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = 16
+    targetCompatibility = 16
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+ext{
+    logbackVerison = '1.2.7'
+    slf4jVersion = '1.7.32'
+    janinoVersion = '3.1.6'
+
+
+    lombokVersion = '1.18.22'
+    annotationVersion = '1.3.2'
+    jacksonCoreVersion = '2.13.1'
+    fileUploadVersion = '1.4'
+
+    springVersion = '5.3.15'
+    springSecurityVersion = '5.6.1'
+    servletApiVersion = '4.0.1'
+    postgresJdbcDriverVersion = '42.3.1'
+    hibernateVersion = '5.6.4.Final'
+    tomcatDbcpVersion = '10.0.16'
+}
+
+dependencies {
+
+    //Different libraries stack
+    //Lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    //Jackson Core
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonCoreVersion
+
+
+    //Web stack
+    //Spring MVC
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: springVersion
+    //Spring Web
+    implementation group: 'org.springframework', name: 'spring-web', version: springVersion
+    //Spring orm
+    implementation group: 'org.springframework', name: 'spring-orm', version: springVersion
+    //Java Annotation API
+    implementation group: 'javax.annotation', name: 'javax.annotation-api', version: annotationVersion
+    //Servlet API
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: servletApiVersion
+    //Commons-fileupload для работы с файлами
+    implementation group: 'commons-fileupload', name: 'commons-fileupload', version: fileUploadVersion
+    //Postgres JDBC Driver
+    implementation group: 'org.postgresql', name: 'postgresql', version: postgresJdbcDriverVersion
+    //Spring Security Core
+    implementation group: 'org.springframework.security', name: 'spring-security-core', version: springSecurityVersion
+    //Spring Security Context
+    implementation group: 'org.springframework.security', name: 'spring-security-config', version: springSecurityVersion
+    //Spring Security Web
+    implementation group: 'org.springframework.security', name: 'spring-security-web', version: springSecurityVersion
+    //Hibernate Core
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: hibernateVersion
+    //Tomcat DBCP
+    implementation group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: tomcatDbcpVersion
+
+    implementation group: 'org.thymeleaf', name: 'thymeleaf-spring5', version: '3.1.0.M1'
+
+
+    //Logging stack
+    //SLF4J
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion
+    //Logback
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: logbackVerison
+    implementation group: 'ch.qos.logback', name: 'logback-core', version: logbackVerison
+    //Janino
+    implementation group: 'org.codehaus.janino', name: 'janino', version: janinoVersion
+}
+
+test {
+    useJUnitPlatform()
+}
