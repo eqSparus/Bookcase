@@ -17,7 +17,10 @@ import java.nio.file.Path;
 @AllArgsConstructor
 @Entity
 @Table(name = "books", schema = "public", catalog = "bookcase_db")
+@NamedQuery(query = "update Book set isRead = :isRead where id = :id", name = Book.QUERY_NAME_UPDATE_IS_READ)
 public class Book implements Serializable {
+
+    static final String QUERY_NAME_UPDATE_IS_READ = "updateIsRead";
 
     @Id
     @Column(name = "book_id")

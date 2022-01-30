@@ -44,7 +44,7 @@ public class BookRepositoryImpl implements BookRepository {
 
         try (var se = session.openSession()) {
             se.beginTransaction();
-            se.createQuery("update Book set isRead = :isRead where id = :id")
+            se.getNamedQuery("updateIsRead")
                     .setParameter("isRead", book.isRead())
                     .setParameter("id", book.getId()).executeUpdate();
             se.getTransaction().commit();
@@ -62,10 +62,7 @@ public class BookRepositoryImpl implements BookRepository {
     @Override
     public List<Book> findAllBooks(String login) {
         try (var se = session.openSession()) {
-
-            var user = se.get(User.class, login);
-
-            return user.getBooks();
+            return se.get(User.class, login).getBooks();
         }
     }
 }
