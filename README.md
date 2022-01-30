@@ -1,10 +1,10 @@
 # Bookcase
 
-Это веб-приложение для знакомства с hibernate
+Веб-приложение для знакомства с hibernate
 
 ## О проекте
 
-Это приложения "Книжная полка"
+Приложение "Книжная полка"
 
 __Функции приложения__
 
@@ -29,11 +29,11 @@ __Функции приложения__
 
 <h1 align="center">In English</h1>
 
-This is a hibernate introduction web app
+Hibernate introduction web app
 
 ## About the project
 
-These are Bookshelf apps
+Bookshelf application
 
 __App Features__
 
