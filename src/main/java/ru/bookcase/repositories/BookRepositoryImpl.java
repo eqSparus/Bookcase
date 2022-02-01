@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Repository
-public class BookRepositoryImpl implements BookRepository {
+public final class BookRepositoryImpl implements BookRepository {
 
     SessionFactory session;
 

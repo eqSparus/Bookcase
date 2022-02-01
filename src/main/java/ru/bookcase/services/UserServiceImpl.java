@@ -14,7 +14,7 @@ import ru.bookcase.services.error.UserExistsException;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Service
-public class UserServiceImpl implements UserService {
+public final class UserServiceImpl implements UserService {
 
 
     UserRepository userRepository;

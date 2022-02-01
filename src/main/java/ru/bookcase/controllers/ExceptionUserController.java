@@ -19,16 +19,9 @@ public class ExceptionUserController {
 
     static String MESSAGE = "message";
 
-    @ExceptionHandler(UserExistsException.class)
+    @ExceptionHandler({UserExistsException.class, FileExistsException.class})
     @ResponseStatus(code = HttpStatus.CONFLICT)
-    public Map<String, String> getMessageErrorExistsUser() {
-        return Map.of(MESSAGE, "Такой пользователь уже существует");
+    public Map<String, String> getMessageErrorExistsUser(Throwable e) {
+        return Map.of(MESSAGE, e.getMessage());
     }
-
-    @ExceptionHandler(FileExistsException.class)
-    @ResponseStatus(code = HttpStatus.CONFLICT)
-    public Map<String, String> getMessageErrorExistsFile(){
-        return Map.of(MESSAGE, "Файл с таким именем уже существует");
-    }
-
 }

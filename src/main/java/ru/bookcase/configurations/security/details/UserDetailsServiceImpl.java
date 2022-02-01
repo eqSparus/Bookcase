@@ -11,7 +11,7 @@ import ru.bookcase.repositories.UserRepository;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public final class UserDetailsServiceImpl implements UserDetailsService {
 
     UserRepository userRepository;
 
@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
         return new UserDetailsImpl(userRepository.findUserByLogin(login)
                 .orElseThrow(IllegalArgumentException::new));
     }

@@ -20,7 +20,7 @@ import java.util.List;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Service
-public class BookServiceImpl implements BookService {
+public final class BookServiceImpl implements BookService {
 
     static Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
 

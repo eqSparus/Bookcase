@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Repository
-public class UserRepositoryImpl implements UserRepository {
+public final class UserRepositoryImpl implements UserRepository {
 
     SessionFactory session;
 

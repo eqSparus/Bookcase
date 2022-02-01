@@ -14,7 +14,7 @@ import java.util.Collections;
 
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @AllArgsConstructor
-public class UserDetailsImpl implements UserDetails {
+public final class UserDetailsImpl implements UserDetails {
 
     User user;
 
