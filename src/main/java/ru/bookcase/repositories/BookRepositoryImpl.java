@@ -25,8 +25,10 @@ public final class BookRepositoryImpl implements BookRepository {
     @Override
     public Optional<Book> insertBook(Book book) {
         try (var se = session.openSession()) {
-            var id = (long) se.save(book);
-            return Optional.ofNullable(se.get(Book.class, id));
+            se.beginTransaction();
+            se.save(book);
+            se.getTransaction().commit();
+            return Optional.ofNullable(book);
         }
     }
 

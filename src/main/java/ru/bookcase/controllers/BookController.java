@@ -68,7 +68,7 @@ public class BookController {
 
     @DeleteMapping(params = "id")
     @ResponseBody
-    public ResponseEntity<HttpEntity> deleteBook(
+    public ResponseEntity<String> deleteBook(
             @RequestParam(name = "id") long id
     ) throws IOException {
         bookService.removeBook(id);
